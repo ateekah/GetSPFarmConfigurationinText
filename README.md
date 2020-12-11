@@ -1,12 +1,16 @@
 # GetSPFarmConfigurationinText
 
 This Powershell script will allow you to gather SharePoint Farm Configuration Information.
+
 Open up SharePoint Management Shell as Administrator.
+
 Run with an account that is a member of the Farm administrator group, or run as a Farm administrator account.
+
 Point to the Getfarmconfig.ps1 file in Powershell ISE as administrator or enter .\Getfarmconfig.ps1 in Powershell
 as administrator
 
 Script will send output to a text file located in c:\temp\spfarmconfig.txt
+
 Check that you have a Temp directory in your C:\ drive or edit the location of the file in the script
 
 Script will create a c:\temp\spfarmconfig.txt file with the following information:
