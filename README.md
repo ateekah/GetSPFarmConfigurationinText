@@ -13,17 +13,29 @@ location of the file in the script
 Script will create a c:\temp\spfarmconfig.txt file with the following information:
 
 Service Applications
+
 SharePoint Web Applications
+
 SharePoint Solutions
+
 SharePoint Service Applications
-SharePoint Service Applications Display Name                                  
-Service Application Pools                                                       
+
+SharePoint Service Applications Display Name     
+
+Service Application Pools     
+
 Servers List
+
 Managed Accounts
+
 SharePoint content databases
-All SharePoint databases       
+
+All SharePoint databases  
+
 SharePoint sites
+
 SharePoint compatiblity settings
+
 SharePoint sites size in MB
 
 Contents of the script contains the following text as follows:
