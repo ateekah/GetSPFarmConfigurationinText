@@ -1,5 +1,11 @@
 add-pssnapin "microsoft.sharepoint.powershell" 
 Write-Warning "This is only a test to gather SharePoint Farm information"
+
+# Save the current execution policy so it can be reset
+$SaveExecutionPolicy = Get-ExecutionPolicy
+Set-ExecutionPolicy RemoteSigned -Scope Currentuser
+
+
 Write-Host "spserviceapplication" 
 "Service Applications" | Out-File -FilePath c:\temp\spfarmconfig.txt
 get-spserviceapplication | select name >> c:\temp\spfarmconfig.txt |Out-GridView
@@ -59,3 +65,5 @@ Get-SPSite | select url, @{label="Size in MB";Expression={$_.usage.storage/1MB}}
 Write-Host "Completed. Thank you!" 
 Write-Host "Author: Anthony Teekah" 
 
+# Reset the execution policy to the original state
+Set-ExecutionPolicy $SaveExecutionPolicy -Scope Currentuser
