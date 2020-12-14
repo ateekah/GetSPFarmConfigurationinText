@@ -1,3 +1,6 @@
+add-pssnapin "microsoft.sharepoint.powershell" 
+Write-Warning "This is only a test to gather SharePoint Farm information"
+
 # Save the current execution policy so it can be reset
 $SaveExecutionPolicy = Get-ExecutionPolicy
 Set-ExecutionPolicy RemoteSigned -Scope Currentuser
