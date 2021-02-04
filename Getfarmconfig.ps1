@@ -1,9 +1,16 @@
-add-pssnapin "microsoft.sharepoint.powershell" 
+Add-PSSnapin Microsoft.SharePoint.PowerShell -erroraction SilentlyContinue
 Write-Warning "This is only a test to gather SharePoint Farm information"
+Write-Warning "Don't forget to create a C:\Temp folder"
+# Don't forget to create a C:\Temp folder
 
 # Save the current execution policy so it can be reset
 $SaveExecutionPolicy = Get-ExecutionPolicy
 Set-ExecutionPolicy RemoteSigned -Scope Currentuser
+
+# get farm version
+Write-Host "Farm Version"
+"Farm version" | Out-File -FilePath c:\temp\spfarmconfig.txt
+(Get-spfarm).buildversion >> c:\temp\spfarmconfig.txt
 
 # Gets the web applications
 Write-Host "spwebapplication"
@@ -64,6 +71,11 @@ Get-SPSite -Limit all >> c:\temp\spfarmconfig.txt
 Write-Host "Sites size in MB" 
 "SharePoint sites size in MB" | Out-File -FilePath c:\temp\spfarmconfig.txt -append
 Get-SPSite -Limit All| select url, @{label="Size in MB";Expression={$_.usage.storage/1MB}} | Sort-Object -Descending -Property "Size in MB" | Format-Table –AutoSize >> c:\temp\spfarmconfig.txt 
+
+# Gets the Databases sizes in GB
+Write-Host "Database size in GB" 
+"SharePoint Database size in GB" | Out-File -FilePath c:\temp\spfarmconfig.txt -append
+Get-SPDatabase | Sort-Object disksizerequired -desc | Format-Table Name, @{Label ="Size in GB"; Expression = {$_.disksizerequired/1024/1024/1024}} >> c:\temp\spfarmconfig.txt
 
 Write-Host "Completed. Thank you!" 
 Write-Host "Author: Anthony Teekah" 
