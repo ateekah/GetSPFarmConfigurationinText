@@ -60,7 +60,7 @@ get-spdatabase | select name >> c:\temp\spfarmconfig.txt
 # Gets the sites
 Write-Host "sites" 
 "SharePoint sites" | Out-File -FilePath c:\temp\spfarmconfig.txt -append
-get-spsite | select url,contentdatabase >> c:\temp\spfarmconfig.txt
+get-spsite -Limit All | select url,contentdatabase >> c:\temp\spfarmconfig.txt
 
 # Gets the compatibility settings
 Write-Host "Compability"
