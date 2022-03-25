@@ -45,7 +45,7 @@ get-spserver >> c:\temp\spfarmconfig.txt
 # Gets the managed accounts
 Write-Host "managed accounts"
 "Managed Accounts" | Out-File -FilePath c:\temp\spfarmconfig.txt -append
-get-spmanagedaccount >> c:\temp\spfarmconfig.txt
+get-spmanagedaccount | Select UserName, PasswordExpiration >> c:\temp\spfarmconfig.txt
 
 # Gets the content databases
 Write-Host "content database"
