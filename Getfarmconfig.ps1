@@ -70,7 +70,7 @@ Get-SPSite -Limit all >> c:\temp\spfarmconfig.txt
 # Gets the sites sizes in MB
 Write-Host "Sites size in MB" 
 "SharePoint sites size in MB" | Out-File -FilePath c:\temp\spfarmconfig.txt -append
-Get-SPSite -Limit All| select url, @{label="Size in MB";Expression={$_.usage.storage/1MB}} | Sort-Object -Descending -Property "Size in MB" | Format-Table –AutoSize >> c:\temp\spfarmconfig.txt 
+Get-SPSite -Limit All| select url, @{label="Size in MB";Expression={$_.usage.storage/1MB}} | Sort-Object -Descending -Property "Size in MB" | Format-Table "–AutoSize >> c:\temp\spfarmconfig.txt" 
 
 # Gets the Databases sizes in GB
 Write-Host "Database size in GB" 
