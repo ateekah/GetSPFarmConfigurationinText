@@ -1,3 +1,4 @@
+##The information that is  provided "as is" without warranty of any kind. 
 Add-PSSnapin Microsoft.SharePoint.PowerShell -erroraction SilentlyContinue
 Write-Warning "This is only a test to gather SharePoint Farm information"
 Write-Warning "Don't forget to create a C:\Temp folder"
